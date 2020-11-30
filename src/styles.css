@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+li, a{
+    font-family:"Goldman";
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:30px 10%;
+    background-color:rgba(255,0,0,.7);
+}
+.titleblock{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:30px 10%;
+}
+.body{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.nav__links{
+    list-style: none;
+}
+.nav__links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+.nav__links li a{
+    transition: 0.4s ease;
+}
+.nav__links li a:hover{
+    color: lightblue
+}
+button{
+    font-family:"Goldman"
+}

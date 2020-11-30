@@ -1,0 +1,44 @@
+<div class="titleblock">
+    <p>Welcome to the Pokemon Search</p>
+</div>
+<div class="body">
+<p>Enter the name of the pokemon in the search box below and hit search.</p>
+<input type="text" [(ngModel)]="searchInput" placeHolder="Enter Name of Pokemon">
+<button (click)="search()">Search</button>
+<br>
+<div *ngIf="dispPokemon">
+    <p>Pokemon Found: {{dispPokemon.name.toUpperCase()}}</p>
+    <img [attr.src]="dispPokemon.sprites.front_default">
+</div>
+<button *ngIf="dispPokemon" (click)="dispAbilities()">Display Abilities</button>
+<button *ngIf="dispPokemon" (click)="dispMoves()">Display Moves</button>
+<button *ngIf="dispPokemon" (click)="dispSprites()">Display All Sprites</button>
+<div [ngSwitch]="buttonPressed">
+    <div *ngSwitchCase="0">
+        <div *ngIf="abilities"><ul>
+<li *ngFor="let abilities of abilities">{{abilities.ability.name.toUpperCase()}}</li>
+</ul>
+</div>
+</div>
+<div *ngSwitchCase="1">
+<div *ngIf="moves"><ul>
+    <li *ngFor="let moves of moves">{{moves.move.name.toUpperCase()}}</li>
+    </ul>
+</div>
+</div>
+<div *ngSwitchCase="2">
+    <div *ngIf="sprites">
+<div *ngFor="let sprite of sprites;let i=index"><div *ngIf="i<8 && sprite[1]">{{sprite[0].toUpperCase()}}<br><img [attr.src]="sprite[1]"></div></div>
+    <!--<div *ngIf="sprites.back_default"><img [attr.src]="sprites.back_default"></div>
+    <div *ngIf="sprites.back_female"><img [attr.src]="sprites.back_female"></div>
+    <div *ngIf="sprites.back_shiny"><img [attr.src]="sprites.back_shiny"></div>
+    <div *ngIf="sprites.back_shiny_female"><img [attr.src]="sprites.back_shiny_female"></div>
+    <div *ngIf="sprites.front_default"><img [attr.src]="sprites.front_default"></div>
+    <div *ngIf="sprites.front_female"><img [attr.src]="sprites.front_female"></div>
+    <div *ngIf="sprites.front_shiny"><img [attr.src]="sprites.front_shiny"></div>
+    <div *ngIf="sprites.front_shiny_female"><img [attr.src]="sprites.front_shiny_female"></div>-->
+</div>
+</div>
+<div *ngSwitchDefault></div>
+</div>
+</div>
